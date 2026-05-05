@@ -1,0 +1,41 @@
+---
+```qmd
+---
+title: "Reporte Completo - Equipo 1"
+format: html
+---
+
+# Análisis de Datos - Secretariado
+## Dataset
+```{python}
+import pandas as pd
+df = pd.read_csv("data_secretariado.csv")
+print(f"Dataset: {df.shape[0]} filas, {df.shape[1]} columnas")
+df.head()
+
+#| echo: false
+#| output: asis
+
+import json
+import numpy as np
+
+def mostrar_notebook(archivo):
+    with open(archivo, 'r', encoding='utf-8') as f:
+        nb = json.load(f)
+    
+    for cell in nb['cells']:
+        if cell['cell_type'] == 'markdown':
+            print('\n'.join(cell['source']))
+        elif cell['cell_type'] == 'code':
+            print(f"\n```python\n{''.join(cell['source'])}\n```")
+            # Si quieres ejecutar el código (opcional)
+            # exec(''.join(cell['source']))
+
+print("# Contenido de Apriori.ipynb\n")
+mostrar_notebook("Apriori.ipynb")
+
+print("\n# Contenido de reglas_asociacion.ipynb\n")
+mostrar_notebook("reglas_asociacion.ipynb")
+
+print("\n# Contenido de ModeloClasificacion.ipynb\n")
+mostrar_notebook("ModeloClasificacion.ipynb")
