@@ -2,7 +2,7 @@
 ```qmd
 ---
 title: "Reporte Completo - Equipo 1"
-format: html
+format: pdf
 ---
 
 # Análisis de Datos - Secretariado
